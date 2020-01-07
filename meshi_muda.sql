@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 02, 2020 at 09:11 PM
--- Server version: 5.6.41-84.1
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 11, 2019 at 09:00 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `businesses`
 --
 
-CREATE TABLE `businesses` (
-  `id` mediumint(50) NOT NULL,
+DROP TABLE IF EXISTS `businesses`;
+CREATE TABLE IF NOT EXISTS `businesses` (
+  `id` mediumint(50) NOT NULL AUTO_INCREMENT,
   `strName` varchar(255) NOT NULL,
   `strEmail` varchar(255) NOT NULL,
   `strPassword` varchar(255) NOT NULL,
@@ -37,8 +38,9 @@ CREATE TABLE `businesses` (
   `strAddress` varchar(255) NOT NULL,
   `strCity` varchar(255) NOT NULL,
   `strProvince` varchar(255) NOT NULL,
-  `strZip` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `strZip` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `businesses`
@@ -53,47 +55,12 @@ INSERT INTO `businesses` (`id`, `strName`, `strEmail`, `strPassword`, `strWasteT
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food_allergens`
---
-
-CREATE TABLE `food_allergens` (
-  `id` mediumint(50) NOT NULL,
-  `strName` varchar(255) NOT NULL,
-  `strDescription` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `food_details`
---
-
-CREATE TABLE `food_details` (
-  `id` mediumint(50) NOT NULL,
-  `nFoodTypeID` mediumint(50) NOT NULL,
-  `nFoodAllergenID` mediumint(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `food_type`
---
-
-CREATE TABLE `food_type` (
-  `id` mediumint(50) NOT NULL,
-  `strName` varchar(255) NOT NULL,
-  `strDescription` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orders`
 --
 
-CREATE TABLE `orders` (
-  `id` mediumint(50) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` mediumint(50) NOT NULL AUTO_INCREMENT,
   `nBusinessID` mediumint(50) NOT NULL,
   `strBusinessName` varchar(255) NOT NULL,
   `strBusinessEmail` varchar(255) NOT NULL,
@@ -101,35 +68,22 @@ CREATE TABLE `orders` (
   `strUserName` varchar(255) NOT NULL,
   `strUserEmail` varchar(255) NOT NULL,
   `nPrice` float(10,2) NOT NULL,
-  `dtOrdered` datetime NOT NULL,
-  `strDeliveryWindow` varchar(255) NOT NULL,
+  `dateOrdered` date NOT NULL,
+  `timeOrdered` time NOT NULL,
   `timePickup` time NOT NULL,
-  `nOrderedFoodID` mediumint(50) NOT NULL,
-  `bActiveOrder` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `strFood` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `nBusinessID`, `strBusinessName`, `strBusinessEmail`, `nUserID`, `strUserName`, `strUserEmail`, `nPrice`, `dtOrdered`, `strDeliveryWindow`, `timePickup`, `nOrderedFoodID`, `bActiveOrder`) VALUES
-(1, 1, 'Famoso', 'admin@famoso.com', 2, 'Sam Winchester', 'sw@supernatural.com', 5.00, '2019-12-09 00:00:00', '', '21:00:00', 1, 0),
-(2, 2, 'Livia Bakery', 'orders@livia.com', 4, 'Carol Peletier', 'cp@kingdom.com', 7.00, '2019-12-06 00:00:00', '', '18:00:00', 2, 0),
-(5, 4, 'JamJar', 'info@jamjar.com', 3, 'Rick Grimes', 'rg@alexandria.com', 5.00, '2019-12-02 00:00:00', '', '19:00:00', 3, 0),
-(6, 3, 'Bandidas Taqueria', 'info@bandidas.com', 1, 'Dean Winchester', 'dw@supernatural.com', 6.00, '2019-12-09 00:00:00', '', '23:00:00', 4, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders_food`
---
-
-CREATE TABLE `orders_food` (
-  `id` mediumint(50) NOT NULL,
-  `nFoodAllergenID` mediumint(50) NOT NULL,
-  `strDescription` longtext NOT NULL,
-  `strImage` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `orders` (`id`, `nBusinessID`, `strBusinessName`, `strBusinessEmail`, `nUserID`, `strUserName`, `strUserEmail`, `nPrice`, `dateOrdered`, `timeOrdered`, `timePickup`, `strFood`) VALUES
+(1, 1, 'Famoso', 'admin@famoso.com', 2, 'Sam Winchester', 'sw@supernatural.com', 5.00, '2019-12-09', '17:00:00', '21:00:00', 'Salad'),
+(2, 2, 'Livia Bakery', 'orders@livia.com', 4, 'Carol Peletier', 'cp@kingdom.com', 7.00, '2019-12-06', '12:00:00', '18:00:00', 'Steak'),
+(5, 4, 'JamJar', 'info@jamjar.com', 3, 'Rick Grimes', 'rg@alexandria.com', 5.00, '2019-12-02', '10:00:00', '19:00:00', 'Chicken parmigiana'),
+(6, 3, 'Bandidas Taqueria', 'info@bandidas.com', 1, 'Dean Winchester', 'dw@supernatural.com', 6.00, '2019-12-09', '20:00:00', '23:00:00', 'Pie');
 
 -- --------------------------------------------------------
 
@@ -137,117 +91,26 @@ CREATE TABLE `orders_food` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` mediumint(50) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` mediumint(50) NOT NULL AUTO_INCREMENT,
   `strFirstName` varchar(255) NOT NULL,
   `strLastName` varchar(255) NOT NULL,
   `strEmail` varchar(255) NOT NULL,
   `strPassword` varchar(255) NOT NULL,
   `strCity` varchar(255) NOT NULL,
-  `strAuthToken` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `strFirstName`, `strLastName`, `strEmail`, `strPassword`, `strCity`, `strAuthToken`) VALUES
-(1, 'Dean', 'Winchester', 'dw@supernatural.com', 'dw', 'Surrey', NULL),
-(2, 'Sam', 'Winchester', 'sw@supernatural.com', 'sw', 'Langley', NULL),
-(3, 'Rick', 'Grimes', 'rg@alexandria.com', 'rg', 'Vancouver', NULL),
-(4, 'Carol', 'Peletier', 'cp@kingdom.com', 'cp', 'Kitsilano', NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `businesses`
---
-ALTER TABLE `businesses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `food_allergens`
---
-ALTER TABLE `food_allergens`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `food_details`
---
-ALTER TABLE `food_details`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `food_type`
---
-ALTER TABLE `food_type`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders_food`
---
-ALTER TABLE `orders_food`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `businesses`
---
-ALTER TABLE `businesses`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `food_allergens`
---
-ALTER TABLE `food_allergens`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `food_details`
---
-ALTER TABLE `food_details`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `food_type`
---
-ALTER TABLE `food_type`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `orders_food`
---
-ALTER TABLE `orders_food`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` mediumint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+INSERT INTO `users` (`id`, `strFirstName`, `strLastName`, `strEmail`, `strPassword`, `strCity`) VALUES
+(1, 'Dean', 'Winchester', 'dw@supernatural.com', 'dw', 'Surrey'),
+(2, 'Sam', 'Winchester', 'sw@supernatural.com', 'sw', 'Langley'),
+(3, 'Rick', 'Grimes', 'rg@alexandria.com', 'rg', 'Vancouver'),
+(4, 'Carol', 'Peletier', 'cp@kingdom.com', 'cp', 'Kitsilano');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

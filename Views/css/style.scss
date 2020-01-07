@@ -30,6 +30,10 @@ $baseFontSize: 16px;
     @include semiBold;
 }
 
+.error {
+    color: red;
+}
+
 .btn-primary-meshi-muda {
     @include semiBold;
     background: $primary;

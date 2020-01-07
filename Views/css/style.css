@@ -6,6 +6,10 @@
   font-weight: 600;
 }
 
+.error {
+  color: red;
+}
+
 .btn-primary-meshi-muda {
   font-weight: 600;
   background: #bc002d;
