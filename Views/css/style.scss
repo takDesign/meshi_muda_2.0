@@ -1,0 +1,72 @@
+// Colours
+$primary: #bc002d;
+$lightGrey: #f0f0f0;
+$darkGrey: #b5b5b5;
+$baseFontSize: 16px;
+
+// Fonts
+@mixin titleFont {
+    font-family: "Libre Franklin", sans-serif;
+}
+
+@mixin bodyFont {
+    font-family: "Montserrat", sans-serif;
+}
+
+@mixin semiBold {
+    font-weight: 600;
+}
+
+@mixin bold {
+    font-weight: 700;
+}
+
+// Common class
+.primary {
+    color: $primary;
+}
+
+.semi-bold {
+    @include semiBold;
+}
+
+.btn-primary-meshi-muda {
+    @include semiBold;
+    background: $primary;
+    color: white;
+    height: 56px;
+    width: 100%;
+    &:hover {
+        color: white;
+    }
+}
+
+// Common css
+body {
+    @include bodyFont;
+    font-weight: 400;
+    font-size: $baseFontSize;
+    background: $lightGrey;
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary;
+        }
+    }
+    h1 {
+        @include titleFont;
+        font-size: 2.4rem;
+        color: $primary;
+    }
+    .underline {
+        border: 1.5px solid $darkGrey;
+        margin: 1.5rem 0;
+    }
+}
+
+// Login
+#formPage {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+}
