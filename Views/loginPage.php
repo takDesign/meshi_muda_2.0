@@ -2,7 +2,7 @@
         <main class="container-fluid">
             <h1 class="text-center text-uppercase">Meshi Muda</h1>
             <div class="underline"></div>
-            <form method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
+            <form id="login" method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
                 <input type="hidden" name="controller" value="outside">
                 <input type="hidden" name="route" value="processLogin">
                 <!-- selecting controller and route upon form submission -->

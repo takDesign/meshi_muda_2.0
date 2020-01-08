@@ -61,22 +61,22 @@ class User
 
     // email validation - letters & numbers, must have 1 @, must have 1 . , email suffix must be a minimum of 2 characters
     if ($_POST['email'] !== '') {
-      $email = $_POST['strEmail'];
+      $email = $_POST['email'];
       $reg = "/[a-zA-Z0-9.\-_]{3,}+@{1}[a-zA-Z0-9]{4,}[.]{1}[a-zA-Z]{2,}/";
       $reg_check = preg_match($reg, $email);
       $validEmail = ($reg_check) ? true : false;
       if (!$validEmail) {
-        $error .= 'emailError=true&';
+        $error .= '&emailError=true';
       }
     }
     // password validation - 
     if ($_POST['password'] !== '') {
-      $password = $_POST['strPassword'];
+      $password = $_POST['password'];
       $reg = '/\A(?=.*?[a-zA-Z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]{8,100}+\z/i'; // check if it is longer than 8 charactors and  has lowercase, uppercase, number, special charactor 
       $reg_check = preg_match($reg, $password);
       $validPassword = ($reg_check) ? true : false;
       if (!$validPassword) {
-        $error .= 'passwordError=true';
+        $error .= '&passwordError=true';
       }
     }
     // if validation is true, sanitize and hash password
@@ -87,13 +87,12 @@ class User
       $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
       $statement = $con->prepare("INSERT INTO users (strEmail, strPassword) VALUES (?, ?)");
-      // echo $statement;
-      // die;
-      $statement->bind_param("ss", $arrClean["strEmail"], $hashedPassword); //ssis is the pattern - so ss is the string, string
+
+      $statement->bind_param("ss", $arrClean["email"], $hashedPassword); //ssis is the pattern - so ss is the string, string
       $statement->execute();
 
       // Just to set $_SESSION['userid'], $_SESSION["username"]
-      $results = Db::query($con, "SELECT * FROM users WHERE strEmail = '" . $arrClean["strEmail"] . "'");
+      $results = Db::query($con, "SELECT * FROM users WHERE strEmail = '" . $arrClean["email"] . "'");
 
       $user = mysqli_fetch_assoc($results);
 
@@ -102,7 +101,7 @@ class User
 
       header("location: index.php?controller=inside&route=showDashboard&account=true");
     } else if (isset($error)) {
-      header("location: index.php?$error");
+      header("location: index.php?controller=outside&route=showSignUp$error");
     }
   } // end save register
 }
