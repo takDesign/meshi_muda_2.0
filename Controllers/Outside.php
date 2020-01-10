@@ -4,8 +4,7 @@ class Outside extends Controller
     // index.php?controller=outside&route=default
     public function
     default()
-    {
-    }
+    {}
 
     public function showSignUp()
     {

@@ -1,16 +1,16 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "seal");
+$con = Db::con();
 // var_dump($con);
 // die;
 
 $password = mysqli_real_escape_string($con, $_POST['password']);
-$user = mysqli_real_escape_string($con, $_POST['username']);
+$user = mysqli_real_escape_string($con, $_POST['email']);
 // echo ($user);
 // echo($password);
 // die;
 
-$sql  = "SELECT * FROM users WHERE strUserName='".$user."'";
+$sql  = "SELECT * FROM users WHERE strEmail='".$user."'";
 $results = mysqli_query($con, $sql);
 $user = mysqli_fetch_assoc($results);
 // echo ($sql);

@@ -1,7 +1,24 @@
 <?php
 session_start(); //tracking user when they log in
 //looks in the files, libs, controls and models - means you don't have to do your includes
-include("autoload.php");
+
+function autoloader($class) {
+    // automatically adding the php extension to $class files
+    $filename = $class.".php";
+    // load all files
+    $arrPlaces = array("Libs", "Models", "Views", "Controllers");
+
+    foreach($arrPlaces as $place)
+    {
+        if (file_exists($place."/$filename"))
+        {
+            include_once($place."/".$filename);
+        }
+    }
+}
+spl_autoload_register('autoloader');
+
+
 //should bring me to outside?
 $controller = "outside";
 $route = "showLogin";

@@ -5,12 +5,12 @@ class Deals extends Controller
 	public function
 	default()
 	{
-		echo "hello in deals";
+		echo "hello in deals controller";
 	}
 
-	// public function processDealPost()
+	// public function processDeal()
 	// {
-	// 	$bSuggestStatus = Deal::suggest($_POST["strContent"], $_SESSION["userid"]);
+	// 	$bSuggestStatus = Suggestion::suggest($_POST["strContent"], $_SESSION["userid"]);
 	// 	if ($bSuggestStatus) {
 	// 		header("location: index.php?controller=inside&route=showDashboard&success=true");
 	// 	} else {
