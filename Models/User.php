@@ -47,19 +47,62 @@ class User
     {
         $con = Db::con();
 
-        $city = $_POST['city'];
+        // empty variables catches data from form input fields
+		$email = "";
+		$password = "";
         
-        $username = $_POST['email'];
-
-        $arrClean["username"] = mysqli_real_escape_string($con, $username);
-        $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        // setting variables to be false to later turn true once validation occurs
+		$validEmail = false;
+        $validPassword = false;
+        $error = '';
         
-        $statement = $con->prepare("INSERT INTO users (strEmail, strPassword, strCity) VALUES (?, ?, ?)");
-        // echo $statement;
-        // die;
-        $statement->bind_param("sss", $arrClean["username"], $hashedPassword, $city); // s = string
-        $statement->execute();
+		// email validation - letters & numbers, must have 1 @, must have 1 . , email suffix must be a minimum of 2 characters
+		if ($_POST['email'] !== '') {
+			$email = $_POST['email'];
+			$reg = "/[a-zA-Z0-9.\-_]{3,}+@{1}[a-zA-Z0-9]{4,}[.]{1}[a-zA-Z]{2,}/";
+			$reg_check = preg_match($reg, $email);
+			$validEmail = ($reg_check) ? true : false;
+			if (!$validEmail) {
+				$error .= 'emailError=true&';
+			}
+		}
 
-        header("location: index.php?newaccount");
+		// password validation - 
+		if ($_POST['password'] !== '') {
+			$password = $_POST['password'];
+			$reg = '/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/'; // Password must contain at least one letter, at least one number, and be longer than six charaters. 
+			$reg_check = preg_match($reg, $password);
+			$validPassword = ($reg_check) ? true : false;
+			if (!$validPassword) {
+				$error .= 'passwordError=true';
+			}
+		}
+		// if validation is true, sanitize and hash password
+		if ($validEmail && $validPassword) {
+            $city = $_POST['city'];
+            $arrClean["city"] = mysqli_real_escape_string($con, $city);
+
+			$email = $_POST['email'];
+			$arrClean["email"] = mysqli_real_escape_string($con, $email);
+
+			$hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
+            
+            $statement = $con->prepare("INSERT INTO users (strEmail, strPassword, strCity) VALUES (?, ?, ?)");
+			// echo $statement;
+			// die;
+			$statement->bind_param("sss", $arrClean["email"], $hashedPassword, $arrClean["city"]); 
+			$statement->execute();
+            
+            // Just to set $_SESSION['userid'], $_SESSION["username"]
+			$results = Db::query($con, "SELECT * FROM users WHERE strEmail= '" . $arrClean["email"] . "'");
+			$user = mysqli_fetch_assoc($results);
+            
+            $_SESSION["userid"] = $user["id"];
+			$_SESSION["username"] = $user["strEmail"];
+            
+            header("location: index.php?controller=inside&route=showDashboard&account=true");
+		} else if (isset($error)) {
+			header("location: index.php?$error");
+		}
     } // end save register
 }
