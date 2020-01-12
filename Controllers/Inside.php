@@ -13,9 +13,9 @@ class Inside extends Controller
 	{
 		User::checkLoggedIn();
 
-		$arrSuggestions = Suggestion::getAll();
+		$arrDeals = Deal::getAll();
 
-		$body = $this->loadView("Views/dashboard.php", $arrSuggestions); // Passing data to loadView so suggestionList.php can read it
+		$body = $this->loadView("Views/dashboard.php", $arrDeals); // Passing data to loadView so dealList.php can read it
 
 		include("Views/mainTemplate.php"); // this mainTemplate is expecting $body
 	}

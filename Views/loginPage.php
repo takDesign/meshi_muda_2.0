@@ -12,6 +12,10 @@
                 if (isset($_GET['error'])) {
                     echo '<p class="error">Incorrect Email or Password.</p>';
                 }
+
+                if (isset($_GET['newaccount'])) {
+                    echo '<p class="error">Please login with your new account details</p>';
+                }
                 ?>
                 <div class="form-group row">
                     <div class="col-sm-12">

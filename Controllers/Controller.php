@@ -9,7 +9,7 @@ abstract class Controller extends App
 
 	public function loadView($path, $data = '')
 	{
-		ob_start(); // stop sending to the browser, instead catch everything that would go to the browser and hold it until told to do otherways
+		ob_start(); // stop sending to the browser, instead catch everything that would go to the browser and hold it until told to do otherwise
 
 		include($path);
 

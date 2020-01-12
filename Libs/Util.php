@@ -22,7 +22,7 @@ class Util
 		);
 		//if on local display, if not don't display
 		if (in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
-			// echo '<script>console.log("' . $msg . '");</script>';
+			echo '<script>console.log("' . $msg . '");</script>';
 		}
 	}
 }
