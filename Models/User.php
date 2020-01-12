@@ -105,4 +105,3 @@ class User
 			header("location: index.php?$error");
 		}
     } // end save register
-}

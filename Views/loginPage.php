@@ -1,8 +1,10 @@
     <body id="formPage" class="d-flex align-items-center">
         <main class="container-fluid">
             <h1 class="text-center text-uppercase">Meshi Muda</h1>
-            <div class="underline"></div>
-            <form method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
+            <div class="mb-5 underline"></div>
+            <!-- <div class="my-5 text-center logo-login">logo</div> -->
+
+            <form id="login" method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
                 <input type="hidden" name="controller" value="outside">
                 <input type="hidden" name="route" value="processLogin">
                 <!-- selecting controller and route upon form submission -->
@@ -17,13 +19,13 @@
                 ?>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="email" name="email" class="form-control rounded-lg" id="inputEmail" placeholder="Enter Email Address" autofocus>
+                        <input type="email" name="email" class="form-control py-4" id="inputEmail" placeholder="Enter Email Address" autofocus>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="password" name="password" class="form-control rounded-lg" id="inputPassword" placeholder="Enter Password">
+                        <input type="password" name="password" class="form-control py-4" id="inputPassword" placeholder="Enter Password">
                     </div>
                 </div>
 
@@ -33,7 +35,7 @@
                     </div>
                 </div>
             </form>
-            <p class="primary semi-bold text-center">Don't have an account? <a href="index.php?controller=outside&route=showSignUp">SIGN UP</a></p>
+            <p class="primary semi-bold text-center">Don't have an account? <a class="text-uppercase" role="button" href="index.php?controller=outside&route=showSignUp">Sign up</a></p>
         </main>
         <?php include 'partials/footer.php' ?>
         <script src="Views/js/form-validation-plugin.js"></script>

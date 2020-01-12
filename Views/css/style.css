@@ -17,7 +17,6 @@
   height: 56px;
   width: 100%;
 }
-
 .btn-primary-meshi-muda:hover {
   color: white;
 }
@@ -28,21 +27,17 @@ body {
   font-size: 16px;
   background: #f0f0f0;
 }
-
 body a {
   color: #bc002d;
 }
-
 body a:hover {
   color: #bc002d;
 }
-
 body h1 {
   font-family: "Libre Franklin", sans-serif;
   font-size: 2.4rem;
   color: #bc002d;
 }
-
 body .underline {
   border: 1.5px solid #b5b5b5;
   margin: 1.5rem 0;
@@ -53,3 +48,39 @@ body .underline {
   height: 100vh;
   margin: 0 auto;
 }
+
+.form-control {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.7rem;
+}
+
+.form-control:focus {
+  color: #000;
+  border-color: #bc002d;
+  box-shadow: 0 0 0 0.2rem rgba(188, 0, 45, 0.25);
+}
+
+.badge-dark {
+  background-color: #bc002d;
+}
+
+.popover {
+  border-radius: 0.7rem;
+}
+
+.popover-header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #b5b5b5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.popover-body {
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
