@@ -74,3 +74,28 @@ body {
     height: 100vh;
     margin: 0 auto;
 }
+
+// Login logo
+
+
+// OVERRIDING BOOTSTRAP CSS
+
+// Forms
+.form-control {
+    @include bodyFont;
+    font-size: 0.8rem;
+    @include semiBold;
+    border: none;
+    border-radius: .7rem;
+}
+
+.form-control:focus {
+    color: #000;
+    border-color:$primary;
+    box-shadow: 0 0 0 .2rem rgba(188, 0, 45,.25);
+}
+
+// Pills and Badges
+.badge-dark {
+background-color: $primary;
+}

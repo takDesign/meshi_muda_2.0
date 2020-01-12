@@ -8,7 +8,7 @@
                 <!-- selecting controller and route upon form submission -->
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="email" name="email" class="form-control rounded-lg" id="inputEmail" placeholder="Enter Email Address" autofocus required>
+                        <input type="email" name="email" class="form-control py-4" id="inputEmail" placeholder="Enter Email Address" autofocus required>
                         <?php if (isset($_GET['emailError'])) {
                             echo '<div class ="invalid-feedback">Please enter a valid email</div>';
                         } ?>
@@ -17,19 +17,31 @@
 
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <input type="password" name="password" class="form-control rounded-lg" id="inputPassword" placeholder="Enter Password" required>
-                        <small class="note">The password must contain at least 1 Uppercase character, lowercase character, number and special charactor</small>
+                        <input type="password" name="password" class="form-control py-4" id="inputPassword" placeholder="Enter Password" required>
+                        <div class="mt-2 ml-2">
+                            <small class="note">Password must contain at least:
+                                <ul>
+                                    <li>One letter</li>
+                                    <li>One number</li>
+                                    <li>Six characters or more</li>
+                                </ul>
+                            </small>
+                        </div>
+                        
                         <?php if (isset($_GET['passwordError'])) {
-                            echo '<div style="color: red;">The password must contain at least 1 Uppercase character, lowercase character, number and special charactor</div>';
+                            echo '<div style="color: red;">Password must contain at least one letter, at least one number, and be longer than six characters.</div>';
                         } ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputCity">City</label>
-                    <select name="city" id="inputCity" class="form-control rounded-lg">
-                        <option value="vancouver" selected>Vancouver</option>
-                    </select>
+                    <label for="inputCity">Security Answer:</label>
+                    <a class="mb-3 px-4 py-4" role="button" data-toggle="popover" data-placement="bottom" title="Why do we need this?" data-content="We only use this information to verify your identity during password resets">
+                        <small>
+                            <span class="badge badge-pill badge-dark">i</span>
+                        </small>
+                    </a>
+                    <input type="text" name="city" class="form-control py-4" id="inputCity" placeholder="What city were you born in?" required>
                 </div>
 
                 <div class="form-group row">
@@ -38,7 +50,7 @@
                     </div>
                 </div>
             </form>
-            <p class="primary semi-bold text-center">Already have an account? <a href="index.php?controller=outside&route=showLogin">Login</a></p>
+            <p class="primary semi-bold text-center">Already have an account? <a class="text-uppercase" role="button" href="index.php?controller=outside&route=showLogin">Login</a></p>
         </main>
         <?php include 'partials/footer.php' ?>
         <script src="Views/js/form-validation-plugin.js"></script>
