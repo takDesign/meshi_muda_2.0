@@ -2,6 +2,7 @@
 $primary: #bc002d;
 $lightGrey: #f0f0f0;
 $darkGrey: #b5b5b5;
+$black: #000;
 $baseFontSize: 16px;
 
 // Fonts
@@ -90,7 +91,7 @@ body {
 }
 
 .form-control:focus {
-    color: #000;
+    color: $black;
     border-color:$primary;
     box-shadow: 0 0 0 .2rem rgba(188, 0, 45,.25);
 }
@@ -98,4 +99,21 @@ body {
 // Pills and Badges
 .badge-dark {
 background-color: $primary;
+}
+
+// Popovers
+.popover {
+    border-radius: .7rem;
+}
+
+.popover-header {
+    background-color: $lightGrey;
+    border-bottom: 1px solid $darkGrey;
+    @include bodyFont();
+    @include semiBold();
+}
+
+.popover-body {
+    color: $black;
+    @include bodyFont();
 }

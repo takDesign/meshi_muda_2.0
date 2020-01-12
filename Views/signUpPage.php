@@ -36,7 +36,7 @@
 
                 <div class="form-group">
                     <label for="inputCity">Security Answer:</label>
-                    <a class="mb-3 px-4 py-4" role="button" data-toggle="popover" data-placement="bottom" title="Why do we need this?" data-content="We only use this information to verify your identity during password resets">
+                    <a class="mb-3 px-4 py-4" role="button" data-toggle="popover" data-placement="bottom" title="Why do we need this?" data-content="So we can verify your identity during password resets">
                         <small>
                             <span class="badge badge-pill badge-dark">i</span>
                         </small>
