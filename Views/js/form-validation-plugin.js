@@ -8,7 +8,8 @@ $.validator.addMethod(
     "Invalid input"
 );
 
-var pReg = /^(?=.*?[a-zA-Z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]/; // regular expression for password
+// var pReg = /^(?=.*?[a-zA-Z])(?=.*?\d)(?=.*?[!-\/:-@[-`{-~])[!-~]/; // regular expression for password
+var pReg = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/; 
 var eReg = /.+@.+\..+/; // regular expression for email
 
 $("#login").validate({

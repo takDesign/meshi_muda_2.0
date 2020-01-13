@@ -1,17 +1,25 @@
-<!-- SECTION TO BE DYNAMICALLY CREATED VIA PHP -->
 <?php
 foreach ($data as $deals) {
     echo '
-        <div class="card w-75 mx-auto mt-2 mb-2 shadow-sm suggestCard">
-            <div class="card-body px-5 py-5">
-                <h6 class="card-title"><i class="fas fa-circle fa-lg mr-1"></i>' . $deals->strRestaurant . '</h6>
-                <p class="card-text"><em>' . $deals->strDeal. '</em></p>
-                <!-- <div>
-                    <i class="far fa-comment-alt fa-lg mr-3"></i>
-                    <a href="#"><div class="heart" data-type="positive"></div></a>
-                    <span class="float-right">16 votes</span>
-                comments votes -->
-            </div><!-- //card-body -->
-        </div><!-- //card -->';
+        <div class="mx-2 my-3">
+            <div class="card">
+                <div class="row no-gutters">
+                    <div class="col-3 mx-0 my-0 px-0 py-0 square">
+                        <div class="content">
+                        <img class="img-fluid imgRounded" src="' . $deals->strImage . '" alt="food image">
+                        </div>
+                    </div>
+                    
+                    <div class="ml-2 d-flex align-self-center">
+                        <div class="card-body py-0">
+                            <p class="card-text semi-bold mb-0">' . $deals->strRestaurant . '</p>
+                            <p class="card-text semi-bold mb-0">' . $deals->strDeal. '</p>
+                        </div>
+                    </div>
+                    <!-- <i class="px-3 py-3 fas fa-2x fa-plus-circle"></i> -->
+                </div>
+            </div>
+            <!-- <p class="card-text float-right mt-1 mr-2"><small class="text-muted">Posted 3 mins ago</small></p> -->
+        </div>
+        ';
 } ?>
-<!-- END SECTION TO BE DYNAMICALLY CREATED VIA PHP -->

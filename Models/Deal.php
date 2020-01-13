@@ -3,13 +3,16 @@ class Deal
 {
 	var $id;
 	var $strRestaurant;
-	var $strDeal;
-	var $strWhen;
-	public function __construct($id, $restaurant, $deal, $datePosted)
+    var $strDeal;
+    var $strImage;
+    var $strWhen;
+    
+	public function __construct($id, $restaurant, $deal, $image, $datePosted)
 	{
 		$this->id = $id;
 		$this->strRestaurant = $restaurant;
-		$this->strDeal = $deal;
+        $this->strDeal = $deal;
+        $this->strImage = $image;
 		$this->strWhen = $datePosted;
     }
     
@@ -40,7 +43,8 @@ class Deal
 			$arrDeals[] = new Deal(
 				$deal["id"],
 				$deal["strRestaurant"],
-				$deal["strDeal"],
+                $deal["strDeal"],
+                $deal["strImage"],
 				$deal["strWhen"]
 			);
 		}
