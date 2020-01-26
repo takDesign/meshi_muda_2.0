@@ -27,7 +27,7 @@
                                 <ul>
                                     <li>One letter</li>
                                     <li>One number</li>
-                                    <li>Six characters or more</li>
+                                    <li>8 characters or more</li>
                                 </ul>
                             </small>
                         </div>

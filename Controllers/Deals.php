@@ -8,15 +8,14 @@ class Deals extends Controller
 		echo "hello in deals controller";
 	}
 
-	// public function processDeal()
-	// {
-	// 	$bSuggestStatus = Suggestion::suggest($_POST["strContent"], $_SESSION["userid"]);
-	// 	if ($bSuggestStatus) {
-	// 		header("location: index.php?controller=inside&route=showDashboard&success=true");
-	// 	} else {
-	// 		echo "Coudn't post your suggestion";
-	// 	}
-	// }
+	public function processDeal()
+	{
+        User::checkLoggedIn();
+        
+        Deal::postDeal();
+
+        header("location: index.php?controller=inside&route=showDashboard&");
+	}
 
 	public function preTrip()
 	{

@@ -70,7 +70,7 @@ class User
 		// password validation - 
 		if ($_POST['password'] !== '') {
 			$password = $_POST['password'];
-			$reg = '/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/'; // Password must contain at least one letter, at least one number, and be longer than six charaters. 
+			$reg = '/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$/'; // Password must contain at least one letter, at least one number, and be longer than six charaters. 
 			$reg_check = preg_match($reg, $password);
 			$validPassword = ($reg_check) ? true : false;
 			if (!$validPassword) {

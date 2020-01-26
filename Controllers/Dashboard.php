@@ -8,16 +8,6 @@ class Deals extends Controller
 		echo "hello in deals";
 	}
 
-	// public function processDealPost()
-	// {
-	// 	$bSuggestStatus = Deal::suggest($_POST["strContent"], $_SESSION["userid"]);
-	// 	if ($bSuggestStatus) {
-	// 		header("location: index.php?controller=inside&route=showDashboard&success=true");
-	// 	} else {
-	// 		echo "Coudn't post your suggestion";
-	// 	}
-	// }
-
 	public function preTrip()
 	{
 		// this function will run before doing any routes inside this controller

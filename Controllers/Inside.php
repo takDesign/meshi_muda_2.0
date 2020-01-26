@@ -18,6 +18,15 @@ class Inside extends Controller
 		$body = $this->loadView("Views/dashboard.php", $arrDeals); // Passing data to loadView so dealList.php can read it
 
 		include("Views/mainTemplate.php"); // this mainTemplate is expecting $body
+    }
+    
+    public function showPostDeal()
+	{
+		User::checkLoggedIn();
+
+		$body = $this->loadView("Views/postDeal.php"); 
+
+		include("Views/mainTemplate.php"); 
 	}
 
 	public function preTrip()

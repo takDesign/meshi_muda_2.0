@@ -5,29 +5,51 @@ class Deal
 	var $strRestaurant;
     var $strDeal;
     var $strImage;
+    var $strLocation;
     var $strWhen;
     
-	public function __construct($id, $restaurant, $deal, $image, $datePosted)
+	public function __construct($id, $restaurant, $deal, $image, $location, $datePosted)
 	{
 		$this->id = $id;
 		$this->strRestaurant = $restaurant;
         $this->strDeal = $deal;
         $this->strImage = $image;
+        $this->strLocation = $location;
 		$this->strWhen = $datePosted;
     }
     
-	// public static function suggest($deal)
-	// {
-	// 	date_default_timezone_set('America/Vancouver');
-	// 	$datePosted =  date("Y-m-d H:i:s"); // the MySQL DATETIME format
-	// 	$con = Db::con();
-	// 	$num = Db::query($con, "INSERT INTO deals (strRestaurant, strDeal, strWhen) VALUES ('" . mysqli_real_escape_string($con, $deal)) ");
-	// 	if ($num) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-    // }
+	public static function postDeal()
+	{
+        $con = Db::con();
+
+        $restaurant = $_POST["strRestaurant"];
+        $deal = $_POST["strDeal"];
+        $image = "https://image.flaticon.com/icons/svg/763/763853.svg";
+        $price = "0.00";
+        $validity = "Today until close";
+        $location = $_POST["strLocation"];
+
+        $sql = "INSERT INTO deals (
+        strRestaurant, 
+		strDeal, 
+        strImage,
+        nPrice,
+		strWhen,
+        strLocation
+        ) VALUES (
+        '".mysqli_real_escape_string($con, $restaurant)."',
+		'".mysqli_real_escape_string($con, $deal)."',
+        '".mysqli_real_escape_string($con, $image)."',
+        '".mysqli_real_escape_string($con, $price)."',
+		'".mysqli_real_escape_string($con, $validity)."',
+        '".mysqli_real_escape_string($con, $location)."'
+        )";
+echo $sql;
+die;
+        mysqli_query($con, $sql);
+        
+        header("location: index.php?controller=inside&route=showDashboard&successPost=true");
+    }
     
 	public static function getAll()
 	{
@@ -45,6 +67,7 @@ class Deal
 				$deal["strRestaurant"],
                 $deal["strDeal"],
                 $deal["strImage"],
+                $deal["strLocation"],
 				$deal["strWhen"]
 			);
 		}

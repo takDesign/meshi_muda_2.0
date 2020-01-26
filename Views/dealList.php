@@ -13,7 +13,9 @@ foreach ($data as $deals) {
                     <div class="ml-2 d-flex align-self-center">
                         <div class="card-body py-0">
                             <p class="card-text semi-bold mb-0">' . $deals->strRestaurant . '</p>
+                            <p class="card-text semi-bold mb-0">' . $deals->strLocation . '</p>
                             <p class="card-text semi-bold mb-0">' . $deals->strDeal. '</p>
+                            <p class="card-text semi-bold mb-0">' . $deals->strWhen. '</p>
                         </div>
                     </div>
                     <!-- <i class="px-3 py-3 fas fa-2x fa-plus-circle"></i> -->
