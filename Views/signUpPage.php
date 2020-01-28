@@ -3,7 +3,7 @@
             <h1 class="h1 text-center text-uppercase">Meshi Muda</h1>
             <div class="mx-5 underline"></div>
             <div class="col-6 my-5 text-center mx-auto">
-                <img class="img-fluid" src="Views/halfCircleMeshi.png" alt="Meshi Muda logo">
+                <img src="Views/halfCircleMeshi.png" alt="Meshi Muda logo">
             </div>
 
             <form id="register" method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
@@ -31,7 +31,7 @@
                                 </ul>
                             </small>
                         </div>
-                        
+
                         <?php if (isset($_GET['passwordError'])) {
                             echo '<div style="color: red;">Password must contain at least one letter, at least one number, and be longer than six characters.</div>';
                         } ?>
