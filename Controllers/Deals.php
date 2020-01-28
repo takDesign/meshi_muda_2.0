@@ -10,11 +10,11 @@ class Deals extends Controller
 
 	public function processDeal()
 	{
-        User::checkLoggedIn();
-        
-        Deal::postDeal();
+		User::checkLoggedIn();
 
-        header("location: index.php?controller=inside&route=showDashboard&");
+		Deal::postDeal($_POST["strRestaurant"], $_POST["strDeal"], $_POST["strLocation"]);
+
+		header("location: index.php?controller=inside&route=showDashboard");
 	}
 
 	public function preTrip()

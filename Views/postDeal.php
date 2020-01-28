@@ -10,7 +10,7 @@
     </header>
 
     <main id="postDealPage" role="main" class="container mt-3 mb-5 py-3">
-        <form id="post" method="post" action="process-deal-post.php" enctype="multipart/form-data" class="form-signin px-3 py-3 needs-validation" novalidate>
+        <form id="post" method="post" action="index.php?controller=deals&route=processDeal" enctype="multipart/form-data" class="form-signin px-3 py-3 needs-validation" novalidate>
             <div class="form-group row">
                 <div class="col-sm-12">
                     <input type="text" name="strRestaurant" class="form-control py-4" id="inputRestaurant" placeholder="Enter restaurant" autofocus>
@@ -59,6 +59,6 @@
                     <i class="footerIcon fas fa-list-ul"></i>
                 </a>
             </li> -->
-        </ul>   
+        </ul>
     </footer>
     <?php include 'partials/footer.php' ?>
