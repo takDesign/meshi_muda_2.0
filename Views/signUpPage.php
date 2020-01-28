@@ -3,7 +3,7 @@
             <h1 class="h1 text-center text-uppercase">Meshi Muda</h1>
             <div class="mx-5 underline"></div>
             <div class="col-6 my-5 text-center mx-auto">
-                <img src="Views/halfCircleMeshi.png" alt="Meshi Muda logo">
+                <img class="w-100" src="Views/halfCircleMeshi.png" alt="Meshi Muda logo">
             </div>
 
             <form id="register" method="post" action="index.php" class="form-signin px-3 py-3 needs-validation" novalidate>
