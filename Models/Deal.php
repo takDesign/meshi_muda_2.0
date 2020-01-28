@@ -21,13 +21,8 @@ class Deal
   public static function postDeal($restaurant, $deal, $location)
   {
     $con = Db::con();
-
-    // $restaurant = $_POST["strRestaurant"];
-    // $deal = $_POST["strDeal"];
     $image = "https://image.flaticon.com/icons/svg/763/763853.svg";
-    // $price = "0.00";
     $validity = "Today until close";
-    // $location = $_POST["strLocation"];
 
     $sql = "INSERT INTO deals (
         strRestaurant, 
@@ -42,9 +37,11 @@ class Deal
     '" . mysqli_real_escape_string($con, $validity) . "',
         '" . mysqli_real_escape_string($con, $location) . "'
         )";
-    mysqli_query($con, $sql);
-
-    header("location: index.php?controller=inside&route=showDashboard&successPost=true");
+    if (mysqli_query($con, $sql)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public static function getAll()
