@@ -8,6 +8,19 @@ $(".card-active").on("click", function() {
             card.removeClass("card-active")
                 .addClass("card-inactive")
                 .css("opacity", "0.5");
+
+            // $.ajax({
+            //     url:
+            //         "index.php?controller=deal&route=changeAvailability&id=" +
+            //         id,
+            //     type: "get",
+            //     success: function() {
+
+            //     },
+            //     error: function() {
+            //         return false;
+            //     }
+            // });
         }
     }
 });
