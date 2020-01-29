@@ -1,5 +1,5 @@
-    <body id="formPage" class="d-flex align-items-center">
-        <main class="container-fluid mt-5 pt-5">
+    <body id="formPage" class="signUp">
+        <main class="container-fluid">
             <h1 class="h1 text-center text-uppercase">Meshi Muda</h1>
             <div class="mx-5 underline"></div>
             <div class="col-6 my-5 text-center mx-auto">

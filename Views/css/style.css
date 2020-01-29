@@ -67,6 +67,10 @@ body .underline {
   margin: 0 auto;
 }
 
+#formPage.signUp {
+  padding-top: 60px;
+}
+
 body#dashboardPage,
 body#postPage {
   background: #bc002d;
@@ -87,7 +91,7 @@ main#postDealPage {
   background: #f0f0f0;
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
-  height: calc(100% - 220px);
+  min-height: calc(100% - 220px);
 }
 
 footer.container {
