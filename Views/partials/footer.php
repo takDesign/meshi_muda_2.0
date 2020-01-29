@@ -8,12 +8,19 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!--INITIALIZE POPOVERS -->
 <script>
-    $(function () {
-    $('[data-toggle="popover"]').popover()
+    $(function() {
+        $('[data-toggle="popover"]').popover()
     });
 
     // DISMISS POPOVERS
     $('.popover-dismiss').popover({
-    trigger: 'focus'
+        trigger: 'focus'
     });
 </script>
+<?php
+if ($_GET['route'] == 'showPostDeal') {
+    echo '<script src="Views/js/post-validation.js"></script>';
+} elseif ($_GET['route'] == 'showDashboard') {
+    echo '<script src="Views/js/cards-state.js"></script>';
+}
+?>

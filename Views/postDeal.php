@@ -13,19 +13,22 @@
         <form id="post" method="post" action="index.php?controller=deals&route=processDeal" enctype="multipart/form-data" class="form-signin px-3 py-3 needs-validation" novalidate>
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="text" name="strRestaurant" class="form-control py-4" id="inputRestaurant" placeholder="Enter restaurant" autofocus>
+                    <input type="text" name="strRestaurant" class="form-control py-4" id="inputRestaurant" placeholder="Enter restaurant" autofocus required>
+                    <div class="invalid-feedback">Please input the restaurant name.</div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="text" name="strLocation" class="form-control py-4" id="inputLocation" placeholder="Enter restaurant location" autofocus>
+                    <input type="text" name="strLocation" class="form-control py-4" id="inputLocation" placeholder="Enter restaurant location" required>
+                    <div class="invalid-feedback">Please input the location.</div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <input type="text" name="strDeal" class="form-control py-4" id="inputDeal" placeholder="Enter deal or details">
+                    <input type="text" name="strDeal" class="form-control py-4" id="inputDeal" placeholder="Enter deal or details" required>
+                    <div class="invalid-feedback">Please input the deal.</div>
                 </div>
             </div>
 
@@ -36,29 +39,7 @@
             </div>
         </form>
     </main>
-
-    <footer class="mt-4 fixed-bottom">
-        <ul class="nav navbar navbar-dark bgDark justify-content-between roundedTop">
-            <!-- <li class="nav-item mx-2">
-                <a class="nav-link active" href="#">
-                    <i class="footerIcon fas fa-user-circle"></i>
-                </a>
-            </li> -->
-            <li class="nav-item mx-2 my-2">
-                <a class="nav-link" href="index.php?controller=inside&route=showDashboard&account=true">
-                    <i class="footerIcon fas fa-home fa-2x"></i>
-                </a>
-            </li>
-            <li class="nav-item mx-2 my-2">
-                <a class="nav-link" href="index.php?controller=inside&route=showPostDeal">
-                    <i class="footerIcon fas fa-plus-square fa-2x"></i>
-                </a>
-            </li>
-            <!-- <li class="nav-item mx-2">
-                <a class="nav-link d-flex flex-row" href="#">
-                    <i class="footerIcon fas fa-list-ul"></i>
-                </a>
-            </li> -->
-        </ul>
-    </footer>
-    <?php include 'partials/footer.php' ?>
+    <?php
+    include 'partials/navigation.php';
+    include 'partials/footer.php';
+    ?>

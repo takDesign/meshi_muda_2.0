@@ -54,7 +54,7 @@ $baseFontSize: 16px;
     color: $primary;
 }
 
-// Common css
+// Common cssF
 // html, body, main {
 //     height: 100vh;
 // }
@@ -93,11 +93,14 @@ body {
     }
 }
 
-// Login
+// Login Signup
 #formPage {
     width: 80%;
     height: 100vh;
     margin: 0 auto;
+    &.signUp {
+        padding-top: 60px;
+    }
 }
 
 // Dashboard
@@ -121,7 +124,7 @@ main#postDealPage {
     background: $lightGrey;
     border-top-left-radius: 3rem;
     border-top-right-radius: 3rem;
-    height: calc(100% - 220px);
+    min-height: calc(100% - 220px);
 }
 
 // Bottom Nav
