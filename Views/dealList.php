@@ -19,7 +19,12 @@ foreach ($data as $deals) {
                 </div>
                 <!-- <i class="px-3 py-3 fas fa-2x fa-plus-circle"></i> -->
             </div>
-            <!-- <p class="card-text float-right mt-1 mr-2"><small class="text-muted">Posted 3 mins ago</small></p> -->
+            <p class="card-text float-right mt-1 mr-2">
+                <small id="' . $deals->id . '" class="text-muted">
+                    Let us know if this is 
+                    <a href="#" id="save" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out: ' . $deals->bAvailable . '</a> 
+                </small>
+            </p>
         </div>
         ';
 }

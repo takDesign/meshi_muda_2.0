@@ -17,10 +17,11 @@
         trigger: 'focus'
     });
 </script>
+
 <?php
-if ($_GET['route'] == 'showPostDeal') {
-    echo '<script src="Views/js/post-validation.js"></script>';
-} elseif ($_GET['route'] == 'showDashboard') {
-    echo '<script src="Views/js/cards-state.js"></script>';
-}
+    if ($_GET['route'] == 'showPostDeal') {
+        echo '<script src="Views/js/post-validation.js"></script>';
+    } elseif ($_GET['route'] == 'showDashboard') {
+        echo '<script src="Views/js/cards-state.js"></script>';
+    }
 ?>
