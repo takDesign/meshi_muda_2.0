@@ -38,6 +38,8 @@
                 </div>
             </form>
             <p class="primary semi-bold text-center">Don't have an account? <a class="text-uppercase" role="button" href="index.php?controller=outside&route=showSignUp">Sign up</a></p>
+
+            <p class="primary semi-bold text-center">Forgot password? <a class="text-uppercase" role="button" href="index.php?controller=outside&route=showReset">Password Reset</a></p>
         </main>
         <?php include 'partials/footer.php' ?>
         <script src="Views/js/form-validation-plugin.js"></script>

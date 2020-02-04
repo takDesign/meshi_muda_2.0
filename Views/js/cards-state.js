@@ -9,18 +9,18 @@ $(".card-active").on("click", function() {
                 .addClass("card-inactive")
                 .css("opacity", "0.5");
 
-            // $.ajax({
-            //     url:
-            //         "index.php?controller=deal&route=changeAvailability&id=" +
-            //         id,
-            //     type: "get",
-            //     success: function() {
-
-            //     },
-            //     error: function() {
-            //         return false;
-            //     }
-            // });
+            $.ajax({
+                url:
+                    "index.php?controller=deals&route=makeUnavailable&id=" +
+                    id,
+                type: "get",
+                success: function() {
+                    alert('success');
+                },
+                error: function() {
+                    return false;
+                }
+            });
         }
     }
 });

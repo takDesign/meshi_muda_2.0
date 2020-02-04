@@ -35,8 +35,40 @@ class Outside extends Controller
             header("location: index.php?controller=inside&route=showDashboard&login=true");
         } else {
         // echo "jk we couldn't quite get ya there...";
-            header("location: index.php?error=ture");
+            header("location: index.php?error=true");
         }
+    }
+
+    public function showReset()
+    {
+        $body = $this->loadView("Views/pwResetPage.php");
+
+        include("Views/mainTemplate.php"); 
+    }
+
+    public function sendReset()
+    {
+        // user is sent an email with a personal link to reset pw
+        User::requestPwReset($_POST["email"]);
+    }
+
+    public function showSetNewPw()
+    {
+        $body = $this->loadView("Views/setNewPwPage.php");
+
+        include("Views/mainTemplate.php"); 
+        // echo $_SESSION["email"];
+        // die;
+    }
+
+    public function processReset()
+    {
+        // verify user credentials
+        // User::getVerification($_GET['email'], $_GET['token']);
+        // user can update pw in db
+        User::setNewPw($_SESSION["email"]);
+        // echo $sql;
+        // die;
     }
 
     public function processLogout()
