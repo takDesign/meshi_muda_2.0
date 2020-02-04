@@ -22,7 +22,7 @@ foreach ($data as $deals) {
             <p class="card-text float-right mt-1 mr-2">
                 <small id="' . $deals->id . '" class="text-muted">
                     Let us know if this is 
-                    <a href="#" id="save" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out ' . $deals->bAvailable . '</a> 
+                    <a href="#" id="save" value="' . $deals->bAvailable . '" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out</a> 
                 </small>
             </p>
         </div>
