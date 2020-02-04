@@ -47,56 +47,128 @@ class User
 
     static public function requestPwReset()
     {
+        // session_start(); // need to track session for pw reset, different to getCurrentUser()
+
         $con = Db::con();
 
-        $email = $_POST["email"];
-        $token = md5($email);
-        $sql = "INSERT INTO `reset-password` (
-            strEmail,
-            strToken
-            ) VALUES (
-            '" . mysqli_real_escape_string($con, $email) . "',
-            '" . mysqli_real_escape_string($con, $token) . "'
-            )";
-        if (mysqli_query($con, $sql)) {
-            // show a success message to user telling them to check their email
-            header("location: index.php?controller=outside&route=showReset&linkSent=true");
+        if(isset($_POST['recovery'])){
+            $email = $_POST['email'];
+            $sql = "SELECT * FROM users WHERE strEmail='" . mysqli_real_escape_string($con, $email) . "' ";
+            $results = mysqli_query($con, $sql);
+            // echo $sql;
+            // die;
 
-            // send email to user
-            $message = "<p>Please click the link below to reset your password</p>";
-            $message .= "<a href='http://localhost/MeshiMuda/index.php?controller=outside&route=processReset&email=$email&reset_token=$token'>";
-                $message .= "Reset password";
-            $message .= "</a>";
-            // wordwrap($msg,70); //use if lines are longer than 70 characters
+            if(!empty($email) && mysqli_fetch_assoc($results)>0 && !filter_var($email, FILTER_VALIDATE_EMAIL)== false ) {
+                $_SESSION['email']=$email;
+                header("location: index.php?controller=outside&route=showSetNewPw");
+            }
+            if(!empty($email)){
+                $ree="What is your email?";
+            } 
+            // elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)== true) {
+            //     $ree = "That email address is invalid"
+            // } 
+            // elseif(mysqli_fetch_assoc($results)<1) {
+            //     $ree = "That email does not exist"
+            // } 
+        }
+        // $con = Db::con();
+
+        // $email = $_POST["email"];
+        // $token = md5($email);
+        // $sql = "INSERT INTO `reset-password` (
+        //     strEmail,
+        //     strToken
+        //     ) VALUES (
+        //     '" . mysqli_real_escape_string($con, $email) . "',
+        //     '" . mysqli_real_escape_string($con, $token) . "'
+        //     )";
+        // if (mysqli_query($con, $sql)) {
+        //     // show a success message to user telling them to check their email
+        //     header("location: index.php?controller=outside&route=showReset&linkSent=true");
+
+        //     // send email to user
+        //     $message = "<p>Please click the link below to reset your password</p>";
+        //     $message .= "<a href='http://localhost/MeshiMuda/index.php?controller=outside&route=processReset&email=$email&reset_token=$token'>";
+        //         $message .= "Reset password";
+        //     $message .= "</a>";
+        //     // wordwrap($msg,70); //use if lines are longer than 70 characters
     
-            // send email
-            mail($_POST["email"], "Reset password", $message);
-        } else {
-            header("location: index.php?controller=outside&route=showReset&linkSent=false");
-        }
+        //     // send email
+        //     mail($_POST["email"], "Reset password", $message);
+        // } else {
+        //     header("location: index.php?controller=outside&route=showReset&linkSent=false");
+        // }
     } 
 
-    static public function getVerification()
-    {
-        if(isset($_GET['email'], $_GET['token'])){
-            $con = Db::con();
-            $email = $_GET["email"];
-            $reset_token = $_GET["token"];
+    // static public function getVerification()
+    // {
+    //     if(isset($_GET['email'], $_GET['token'])){
+    //         $con = Db::con();
+    //         $email = $_GET["email"];
+    //         $reset_token = $_GET["token"];
 
-            $results = Db::query($con, "SELECT * FROM reset-password WHERE strEmail = '" . mysqli_real_escape_string($con, $email) . "' AND strToken = '" . mysqli_real_escape_string($con, $reset_token) . "'");
-            $result = mysqli_query($con, $sql);
+    //         $results = Db::query($con, "SELECT * FROM reset-password WHERE strEmail = '" . mysqli_real_escape_string($con, $email) . "' AND strToken = '" . mysqli_real_escape_string($con, $reset_token) . "'");
+    //         $result = mysqli_query($con, $sql);
 
-            $user = mysqli_fetch_assoc($results);
-            return $user;
-        } else {
-            return false;
-        }
-    } 
+    //         $user = mysqli_fetch_assoc($results);
+    //         return $user;
+    //     } else {
+    //         return false;
+    //     }
+    // } 
 
     static public function setNewPw()
     {
         $con = Db::con();
 
+        // $password = $_POST['password'];
+
+        // $sql = "UPDATE users 
+        // SET strPassword=('" . mysqli_real_escape_string($con, $password) . "') 
+        // WHERE strEmail='".$_SESSION['email']."' ";
+        // // mysqli_query($con, $sql);
+        // // echo $sql;
+        // // die;
+
+        // if (mysqli_query($con, $sql)) {
+        //     // show a success message to user telling them to check their email
+        //     header("location: index.php?controller=outside&route=showLogin&pwReset=true");
+        // } else {
+        //     header("location: index.php?controller=outside&route=showLogin&pwReset=false");
+        // }
+
+        $password = ""; // empty variables catches data from form input fields
+        $validPassword = false; // setting variables to be false to later turn true once validation occurs
+        $error = '';
+
+        // password validation
+        if ($_POST['password'] !== '') {
+            $password =  mysqli_real_escape_string($con, $_POST['password']);
+            $reg = '/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$/'; // Password must contain at least one letter, at least one number, and be longer than six charaters. 
+            $reg_check = preg_match($reg, $password);
+            $validPassword = ($reg_check) ? true : false;
+            if (!$validPassword) {
+                $error .= 'passwordError=true';
+            }
+        }
+        // if validation is truehash password
+        if ($validPassword) {
+            $hashedPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
+            $sql = 
+                "UPDATE users 
+                SET strPassword='".$hashedPassword."'
+                WHERE strEmail='".$_SESSION['email']."' 
+                ";
+            mysqli_query($con, $sql);
+            // echo $sql;
+            // die;
+            // show a success message to user telling them to check their email
+            header("location: index.php?controller=outside&route=showLogin&pwReset=true");
+        } 
+        else {
+            header("location: index.php?controller=outside&route=showLogin&pwReset=false");
+        }
     }
 
     static public function saveRegister()

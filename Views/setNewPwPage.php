@@ -18,6 +18,15 @@
                         <div class="col-sm-12">
                             <input type="password" name="password" class="form-control py-4" id="inputNewPw" placeholder="Enter your new password" autofocus>
                         </div>
+                        <div class="mt-2 ml-4">
+                            <small class="note">Password must contain at least:
+                                <ul>
+                                    <li>One letter</li>
+                                    <li>One number</li>
+                                    <li>8 characters or more</li>
+                                </ul>
+                            </small>
+                        </div>
                     </div>
 
                     <div class="form-group row">

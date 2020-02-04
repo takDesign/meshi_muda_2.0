@@ -57,14 +57,18 @@ class Outside extends Controller
         $body = $this->loadView("Views/setNewPwPage.php");
 
         include("Views/mainTemplate.php"); 
+        // echo $_SESSION["email"];
+        // die;
     }
 
     public function processReset()
     {
         // verify user credentials
-        User::getVerification($_GET['email'], $_GET['token']);
+        // User::getVerification($_GET['email'], $_GET['token']);
         // user can update pw in db
-        User::setNewPw($_POST["password"]);
+        User::setNewPw($_SESSION["email"]);
+        // echo $sql;
+        // die;
     }
 
     public function processLogout()

@@ -1,12 +1,5 @@
     <body id="pwResetPage" class="d-flex align-items-center">
         <main class="container-fluid">
-        <?php
-        if (isset($_GET['linkSent=true'])) {
-            echo '<p class="py-3 success text-center alert alert-success">Please check your email for a link to reset your password</p>';
-        } else if (isset($_GET['linkSent=false'])) {
-            echo '<p class="py-3 danger text-center alert alert-danger">Uh oh! Something went wrong!</p>';
-        }
-        ?>
             <section id="resetWrapper" class="mx-auto mt-5 col-md-5">
                 <h1 class="h1 text-center text-uppercase">Meshi Muda</h1>
                 <div class="mb-5 mx-5 underline"></div>
@@ -25,7 +18,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <button type="submit" value="Send recovery email" class="btn btn-primary-meshi-muda rounded-pill text-uppercase">Reset Password</button>
+                            <button type="submit" name="recovery" value="Recover" class="btn btn-primary-meshi-muda rounded-pill text-uppercase">Reset Password</button>
                         </div>
                     </div>
                 </form>
