@@ -19,9 +19,11 @@
 </script>
 
 <?php
+if (isset($_GET['route'])) {
     if ($_GET['route'] == 'showPostDeal') {
         echo '<script src="Views/js/post-validation.js"></script>';
     } elseif ($_GET['route'] == 'showDashboard') {
         echo '<script src="Views/js/cards-state.js"></script>';
     }
+}
 ?>

@@ -1,7 +1,15 @@
 <?php
 foreach ($data as $deals) {
+    // set the class for styling depends on food availability
+    if ($deals->bAvailable === '0') {
+        $availability = 'save';
+        $activity = 'card-active';
+    } else {
+        $availability = 'saved';
+        $activity = 'card-inactive';
+    }
     echo '
-        <div class="mx-2 my-3 card card-active" data-id="' . $deals->id . '">
+        <div class="mx-2 my-3 card ' . $activity . '">
             <div class="row no-gutters">
                 <div class="col-3 mx-0 my-0 px-0 py-0 square">
                     <div class="content">
@@ -20,9 +28,9 @@ foreach ($data as $deals) {
                 <!-- <i class="px-3 py-3 fas fa-2x fa-plus-circle"></i> -->
             </div>
             <p class="card-text float-right mt-1 mr-2">
-                <small id="' . $deals->id . '" class="text-muted">
+                <small class="text-muted">
                     Let us know if this is 
-                    <a href="#" id="save" value="' . $deals->bAvailable . '" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out</a> 
+                    <a href="#" class="' . $availability . '" data-availability="' . $deals->bAvailable . '" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out</a> 
                 </small>
             </p>
         </div>
