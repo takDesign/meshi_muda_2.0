@@ -12,11 +12,15 @@
                 <!-- selecting controller and route upon form submission -->
                 <?php
                 if (isset($_GET['error'])) {
-                    echo '<p class="error">Incorrect Email or Password.</p>';
+                    echo '<p class="alert alert-danger" role="alert">Incorrect Email or Password.</p>';
                 }
 
                 if (isset($_GET['newaccount'])) {
-                    echo '<p class="error">Please login with your new account details</p>';
+                    echo '<p class="alert alert-success" role="alert">Please login with your new account details</p>';
+                }
+
+                if (isset($_GET['pwReset'])) {
+                    echo '<p class="alert alert-success" role="alert">Password reset success!</p>';
                 }
                 ?>
                 <div class="form-group row">

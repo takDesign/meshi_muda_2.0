@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 04, 2020 at 09:15 PM
+-- Generation Time: Feb 16, 2020 at 07:57 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -109,11 +109,10 @@ INSERT INTO `users` (`id`, `strEmail`, `strPassword`, `strToken`, `strCity`) VAL
 (7, 'r@r.com', '$2y$10$d0nKB69t49j4hodPWzEc6eZuuaEQUi6sLlrmY/eiRDZtFfaNqM51K', '', 'vancouver'),
 (8, 's@s.com', '$2y$10$Qfgq./1p/W6gB1l8aWm27OiSgzAo2.3aPb9709EHqBoFcK3qsRaqm', '', 'vancouver'),
 (9, 'cindy@vanarts.com', '$2y$10$6k7y04dTDjaXfONH.akXf.ivGxdk5JDIS/dl7c.c4MLosUBH6gn/2', '', 'vancouver'),
-(10, 'admin@vanarts.com', '$2y$10$FD.QTWDlaOdCikoA4CX2Ius8UVJ.6SQZeNBX4HbhzkDMgjql97DA6', '', 'Sydney'),
+(10, 'admin@vanarts.com', '$2y$10$OtEWVRiy0lFFcXbkLwWMFO0Lg6blKMnO/BbfWGlPKVDTHe4xFqadq', '', 'Sydney'),
 (11, 'toki@trouble.com', '$2y$10$Tva10PLv7dGsZddebrWvE.fUUtqj4Cs65SDFt63YAI4O/1veMpcaq', '', 'Sydney'),
 (12, 'dev@vanarts.com', '$2y$10$H.CA5FmJU.X30A6x4Fjtg.spfNjKo7ZowuupBohs1GgJ0FQ3rtusq', '', 'Los Angeles'),
-(13, 'php@vanarts.com', '$2y$10$n/hC7AuUp0PaV/eBj4HEAeSs7e/1yv6ypfUl94mL5lGSHP/RndcZy', '', 'Helsinki'),
-(14, 'php@vanarts.com', '$2y$10$pf0ioK0wv5yBal27QJqfnOOebPhmQTbIrQ41UwxxQc2qPOFogd0vG', '', 'Helsinki');
+(13, 'php@vanarts.com', '$2y$10$sTAIWpOk2mxjtnuxGF9qMuZAWW2BIsXNtgmfIpXom0xQwKRUeukFy', '', 'Helsinki');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

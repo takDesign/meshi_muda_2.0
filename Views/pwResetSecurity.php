@@ -8,7 +8,7 @@
                 </div>
 
                 <?php
-                if (isset($_GET['Error'])) {
+                if (isset($_GET['emailError'])) {
                     echo '<div class="py-3 danger text-center alert alert-danger">
                         <p>Uh oh! Something went wrong!</p>
                         <p>Please check your details and try again</p>
@@ -19,24 +19,22 @@
                 <form id="login" method="post" action="index.php?controller=outside&route=sendReset" class="form-signin px-3 py-3 needs-validation" novalidate>
                     <input type="hidden" name="controller" value="outside">
                     <input type="hidden" name="route" value="sendReset">
-
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <p>What is your email address?</p>
-                            <input type="email" name="email" class="form-control py-4" id="inputEmail" placeholder="Your email" required>
-                        </div>
-                    </div>
-
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <p>Security question: What city were you born in?</p>
-                            <input type="text" name="security" class="form-control py-4" id="securityCity" placeholder="Your answer" required>
+                            <input type="security" name="security" class="form-control py-4" id="securityCity" placeholder="Your answer">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <button type="submit" name="recovery" value="Recover" class="btn btn-primary-meshi-muda rounded-pill text-uppercase">Verify Identity</button>
+                            <input type="email" name="email" class="form-control py-4" id="inputEmail" placeholder="Enter Email Address">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button type="submit" name="recovery" value="Recover" class="btn btn-primary-meshi-muda rounded-pill text-uppercase">Reset Password</button>
                         </div>
                     </div>
                 </form>

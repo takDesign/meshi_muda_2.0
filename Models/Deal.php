@@ -20,10 +20,10 @@ class Deal
         $this->bAvailable = $available;
     }
 
-    public static function postDeal($restaurant, $deal, $location)
+    public static function postDeal($restaurant, $deal, $image, $location)
     {
         $con = Db::con();
-        $image = "https://image.flaticon.com/icons/svg/763/763853.svg";
+        // $image = "https://image.flaticon.com/icons/svg/763/763853.svg";
         $validity = "Today until close";
         $available = 0;
 
