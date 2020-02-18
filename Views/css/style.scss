@@ -107,6 +107,7 @@ body {
 body#dashboardPage,
 body#postPage {
     background: $primary;
+    height: 100vh;
 }
 
 @media only screen and (min-width: 768px) {
@@ -125,6 +126,11 @@ main#postDealPage {
     border-top-left-radius: 3rem;
     border-top-right-radius: 3rem;
     min-height: calc(100% - 220px);
+    form#post {
+        input:checked + label {
+            opacity: 0.7;
+        }
+    }
 }
 
 // Bottom Nav

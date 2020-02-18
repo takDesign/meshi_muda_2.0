@@ -20,10 +20,9 @@ class Deal
         $this->bAvailable = $available;
     }
 
-    public static function postDeal($restaurant, $deal, $image, $location)
+    public static function postDeal($restaurant, $deal, $location, $image)
     {
         $con = Db::con();
-        // $image = "https://image.flaticon.com/icons/svg/763/763853.svg";
         $validity = "Today until close";
         $available = 0;
 
@@ -77,7 +76,7 @@ class Deal
     {
         $con = Db::con();
 
-        if(isset($_GET['id'])){
+        if (isset($_GET['id'])) {
 
             $available = 1;
             $id = $_GET['id'];
@@ -93,4 +92,3 @@ class Deal
         }
     }
 }
-

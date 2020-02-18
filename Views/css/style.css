@@ -74,6 +74,7 @@ body .underline {
 body#dashboardPage,
 body#postPage {
   background: #bc002d;
+  height: 100vh;
 }
 
 @media only screen and (min-width: 768px) {
@@ -92,6 +93,11 @@ main#postDealPage {
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
   min-height: calc(100% - 220px);
+}
+
+main#dashboardMain form#post input:checked + label,
+main#postDealPage form#post input:checked + label {
+  opacity: 0.7;
 }
 
 footer.container {

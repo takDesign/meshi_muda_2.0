@@ -5,7 +5,7 @@ foreach ($data as $deals) {
             <div class="row no-gutters">
                 <div class="col-3 mx-0 my-0 px-0 py-0 square">
                     <div class="content">
-                    <img class="img-fluid imgRounded" src="' . $deals->strImage . '" alt="food image">
+                    <img class="img-fluid imgRounded" src="Views/imgs/' . $deals->strImage . '" alt="food image">
                     </div>
                 </div>
                 
@@ -22,7 +22,7 @@ foreach ($data as $deals) {
             <p class="card-text float-right mt-1 mr-2">
                 <small id="' . $deals->id . '" class="text-muted">
                     Let us know if this is 
-                    <a href="#" id="save" value="' . $deals->bAvailable . '" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out</a> 
+                    <a href="#" class="save" value="' . $deals->bAvailable . '" data-role="update" data-target="soldout" data-id="' . $deals->id . '">Sold Out</a> 
                 </small>
             </p>
         </div>

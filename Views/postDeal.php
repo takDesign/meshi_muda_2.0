@@ -34,6 +34,34 @@
 
             <div class="form-group row">
                 <div class="col-sm-12">
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon1" value="rice.svg" required checked>
+                    <label class="text-center" for="inputIcon1"><img src="Views/imgs/rice.svg" class="w-75 icons" alt="Rice Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon2" value="burger.svg">
+                    <label class="text-center" for="inputIcon2"><img src="Views/imgs/burger.svg" class="w-75 icons" alt="Burger Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon3" value="kebab.svg">
+                    <label class="text-center" for="inputIcon3"><img src="Views/imgs/kebab.svg" class="w-75 icons" alt="Kebab Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon4" value="pizza.svg">
+                    <label class="text-center" for="inputIcon4"><img src="Views/imgs/pizza.svg" class="w-75 icons" alt="Pizza Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon5" value="spaghetti.svg">
+                    <label class="text-center" for="inputIcon5"><img src="Views/imgs/spaghetti.svg" class="w-75 icons" alt="Spaghetti Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+
+                    <input type="radio" name="strImage" class="form-control py-4 d-none" id="inputIcon6" value="ice-cream.svg">
+                    <label class="text-center" for="inputIcon6"><img src="Views/imgs/ice-cream.svg" class="w-75 icons" alt="Ice Cream Icon"></label>
+                    <div class="invalid-feedback">Please select the icon.</div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
                     <button type="submit" class="btn btn-primary-meshi-muda rounded-pill text-uppercase">Post Deal</button>
                 </div>
             </div>

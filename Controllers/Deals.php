@@ -12,7 +12,7 @@ class Deals extends Controller
     {
         User::checkLoggedIn();
 
-        $bPost = Deal::postDeal($_POST["strRestaurant"], $_POST["strDeal"], $_POST["strLocation"]);
+        $bPost = Deal::postDeal($_POST["strRestaurant"], $_POST["strDeal"], $_POST["strLocation"], $_POST["strImage"]);
 
         if ($bPost) {
             header("location: index.php?controller=inside&route=showDashboard&successPost=true");
