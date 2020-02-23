@@ -1,6 +1,6 @@
     <body id="setNewPwPage" class="d-flex align-items-center">
         <main class="container-fluid">
-            <section id="resetWrapper" class="mx-auto mt-5 col-md-5">
+            <section id="setNewPw" class="mx-auto mt-5 col-md-5">
                 <h1 class="h1 text-center text-uppercase">Meshi Muda</h1>
                 <div class="mb-5 mx-5 underline"></div>
                 <div class="col-6 my-5 text-center mx-auto">
