@@ -17,7 +17,9 @@
     </header>
 
     <main id="dashboardMain" role="main" class="container mt-3 mb-5 py-3">
-        <?php include 'dealList.php' ?>
+        <div class="mx-auto mt-5 col-md-5">
+            <?php include 'dealList.php' ?>
+        </div>
     </main>
     <?php
     include 'partials/navigation.php';
