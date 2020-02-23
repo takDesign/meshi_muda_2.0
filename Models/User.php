@@ -49,6 +49,9 @@ class User
     {
         $con = Db::con();
 
+        session_start();
+        $_SESSION['email'] = $_POST['email'];
+
         if (isset($_POST['recovery'])) {
             //declare empty vars for later use
                 $password = ''; 

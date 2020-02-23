@@ -66,7 +66,7 @@ class Outside extends Controller
         // verify user credentials
         // User::getVerification($_GET['email'], $_GET['token']);
         // user can update pw in db
-        User::setNewPw($_SESSION["email"]);
+        User::setNewPw($_SESSION['email']);
         // echo $sql;
         // die;
     }
